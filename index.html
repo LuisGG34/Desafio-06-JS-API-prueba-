@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Apis</title>
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <!-- mis estilos en css-->
+    <link rel="stylesheet" href="./Assets/css/styles.css">
+    <!-- script graficos chart js-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="ContainerData">
+        <hr>
+        <div class="titulo">
+            <h1>Conversor de Monedas Nacional</h1>
+        </div>
+        <hr>
+        <div class="bloque">
+            <h2>Pesos a CLP</h2>
+            <input type="number" id="montoIngresado">
+            <h3>Monedas a Convertir</h3>
+            <select name="Monedas" id="idMonedas">
+                <option value="uf">Unidad de fomento (UF)</option>
+                <option value="euro">Euro</option>
+                <option value="dolar">Dólar observado</option>
+            </select>
+            <button class="btn btn-primary" id="botonBuscar">Buscar</button>
+            <h4>Resultado: <span id="respuestaBoton"></span></h4>
+            <span id="errorSpan"></span>
+        </div>
+        <div class="grafico">
+            <h4>Grafico de tendencia</h3>
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+    <script src="./Assets/js/script.js"></script>
+</body>
+</html>
