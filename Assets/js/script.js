@@ -36,14 +36,17 @@ function prepararConfiguracionParaLaGrafica(serieValorMoneda, moneda) {
             labels: labels,
             datasets: [{
                 label: `${moneda} - Valor`,
-                backgroundColor: 'red',
-                borderColor: 'red',
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
                 data: valores,
-                borderWidth: 1
+                borderWidth: 1,
+                pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+                pointBorderColor: '#fff'
             }]
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 title: {
                     display: true,
@@ -52,6 +55,9 @@ function prepararConfiguracionParaLaGrafica(serieValorMoneda, moneda) {
                 tooltip: {
                     mode: 'index',
                     intersect: false
+                },
+                legend: {
+                    display: false // Oculta la leyenda en dispositivos móviles para ahorrar espacio
                 }
             },
             scales: {
@@ -60,23 +66,28 @@ function prepararConfiguracionParaLaGrafica(serieValorMoneda, moneda) {
                     title: {
                         display: true,
                         text: 'Fecha'
-                    }
+                    },
                 },
                 y: {
                     display: true,
                     title: {
                         display: true,
                         text: 'Valor'
+                    },
+                    ticks: {
+                        callback: function(value) {
+                            return value.toLocaleString(); // Formatear los valores del eje Y
+                        },
+                        maxTicksLimit: 10 // Limitar el número de ticks en el eje Y
                     }
                 }
             },
-            // Configuración del fondo del gráfico
-            elements: {
-                point: {
-                    backgroundColor: 'rgba(54, 162, 235, 1)'
-                },
-                line: {
-                    backgroundColor: 'rgba(54, 162, 235, 1)'
+            layout: {
+                padding: {
+                    top: 10,
+                    right: 10,
+                    bottom: 10,
+                    left: 10
                 }
             }
         }
